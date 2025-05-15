@@ -23,9 +23,21 @@ def selection(data, jenis): # Fungsi untuk melakukan pengurutan dengan metode Se
         print("-" * 50)
     return data
 
-while True: # Program utama untuk meminta input data dari pengguna
+def validasi(data_input): # Memeriksa apakah semua elemen input adalah angka
+    data = data_input.split()
+    for elemen in data:
+        if not elemen.isdigit(): # Cek jika ada elemen yang bukan angka
+            return None
+    return list(map(int, data)) # Mengubah input menjadi list integer
+
+while True:  # Program utama untuk meminta input data dari pengguna
     user_input = input("Masukkan data yang ingin diurutkan (pisahkan dengan spasi): ")
-    data = list(map(int, user_input.split())) # Mengubah input menjadi list integer
+    
+    data = validasi(user_input)# Validasi input data
+    
+    if data is None:
+        print("Input tidak valid! Pastikan semua data berupa angka dan dipisahkan dengan spasi.")
+        continue
 
     print("Pilih jenis pengurutan:")
     print("1. Pengurutan naik (ascending)")
