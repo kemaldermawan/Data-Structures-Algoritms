@@ -1,4 +1,4 @@
-def selection_sort(data, jenis_pengurutan): # Fungsi untuk melakukan pengurutan dengan metode Selection Sort
+def selection(data, jenis): # Fungsi untuk melakukan pengurutan dengan metode Selection Sort
 
     for i in range(len(data)): # Iterasi untuk setiap elemen dalam data
         index = i # Menyimpan indeks elemen terkecil atau terbesar
@@ -6,10 +6,10 @@ def selection_sort(data, jenis_pengurutan): # Fungsi untuk melakukan pengurutan 
 
         for j in range(i + 1, len(data)): # Iterasi untuk membandingkan elemen
             print(f"  Bandingkan {data[j]} dengan {data[index]}")
-            if jenis_pengurutan == 1: # Pengurutan naik
+            if jenis == 1: # Pengurutan naik
                 if data[j] < data[index]:
                     index = j
-            elif jenis_pengurutan == 2: # Pengurutan turun
+            elif jenis == 2: # Pengurutan turun
                 if data[j] > data[index]:
                     index = j
 
@@ -31,15 +31,15 @@ while True: # Program utama untuk meminta input data dari pengguna
     print("1. Pengurutan naik (ascending)")
     print("2. Pengurutan turun (descending)")
     
-    jenis_pengurutan = input("Masukkan pilihan (1 atau 2): ").strip()
+    jenis = input("Masukkan pilihan (1 atau 2): ").strip()
 
-    while jenis_pengurutan not in ['1', '2']:
-        jenis_pengurutan = input("Pilihan tidak valid. Masukkan 1 untuk menaik atau 2 untuk menurun: ").strip()
+    while jenis not in ['1', '2']:
+        jenis = input("Pilihan tidak valid. Masukkan 1 untuk menaik atau 2 untuk menurun: ").strip()
 
-    jenis_pengurutan = int(jenis_pengurutan) # Mengubah pilihan menjadi integer
+    jenis = int(jenis) # Mengubah pilihan menjadi integer
 
     print("\nData sebelum diurutkan:", data)
-    selection_sort(data, jenis_pengurutan) # Memanggil fungsi selection_sort
+    selection(data, jenis) # Memanggil fungsi selection
     print("Data setelah diurutkan:", data)
 
     ulang = input("\nIngin mengulang program? (ya/tidak): ").strip().lower() # Meminta konfirmasi untuk mengulang program
