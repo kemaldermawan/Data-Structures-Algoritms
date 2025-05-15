@@ -21,7 +21,7 @@ def hapus(data):
         print("Data tidak ditemukan.")
 
 def main():
-    array = []
+    daftar = []
     while True:
         print("\nMenu:")
         print("1. Tambah Data")
@@ -31,11 +31,11 @@ def main():
         pilihan = input("Pilih (1-4): ").strip()
 
         if pilihan == '1':
-            tambah(array)
+            tambah(daftar)
         elif pilihan == '2':
-            hapus(array)
+            hapus(daftar)
         elif pilihan == '3':
-            tampilkan(array)
+            tampilkan(daftar)
         elif pilihan == '4':
             break
         else:
