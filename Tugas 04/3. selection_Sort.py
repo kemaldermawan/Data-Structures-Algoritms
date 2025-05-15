@@ -24,7 +24,7 @@ def selection(data, jenis): # Fungsi untuk melakukan pengurutan dengan metode Se
     return data
 
 while True: # Program utama untuk meminta input data dari pengguna
-    user_input = input("Masukkan Data (pisahkan dengan spasi): ")
+    user_input = input("Masukkan data yang ingin diurutkan (pisahkan dengan spasi): ")
     data = list(map(int, user_input.split())) # Mengubah input menjadi list integer
 
     print("Pilih jenis pengurutan:")
@@ -40,7 +40,11 @@ while True: # Program utama untuk meminta input data dari pengguna
 
     print("\nData sebelum diurutkan:", data)
     selection(data, jenis) # Memanggil fungsi selection
-    print("Data setelah diurutkan:", data)
+    
+    if jenis == 1:
+        print("Data setelah diurutkan naik:", data) # Menampilkan hasil pengurutan naik
+    elif jenis == 2:
+        print("Data setelah diurutkan turun:", data) # Menampilkan hasil pengurutan turun
 
     ulang = input("\nIngin mengulang program? (ya/tidak): ").strip().lower() # Meminta konfirmasi untuk mengulang program
     if ulang != 'ya':
