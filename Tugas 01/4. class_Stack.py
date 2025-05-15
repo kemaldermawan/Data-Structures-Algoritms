@@ -57,7 +57,7 @@ while True: # Menu program
     elif pilihan == "6":
         print(stack.tampilkan())
     elif pilihan == "7":
-        ulang = input("Apakah Anda ingin mengulang program? (ya/tidak): ").strip().lower()
+        ulang = input("Apakah Anda ingin mengulang program? (ya/tidak): ").strip().lower() # Mengulang program
         if ulang != "ya":
             print("Terima kasih! Program selesai.")
             break

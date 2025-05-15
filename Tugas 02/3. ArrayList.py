@@ -1,10 +1,10 @@
-def tampilkan(data):
-    if not data:
+def tampilkan(data): # Menampilkan isi array
+    if not data: 
         print("Array kosong.")
     else:
         print("Isi array:", ", ".join(data))
 
-def tambah(data):
+def tambah(data): # Menambah data ke dalam array
     nama = input("Masukkan data yang ingin ditambah: ").strip()
     i = 0
     while i < len(data) and nama.lower() > data[i].lower():
@@ -12,7 +12,7 @@ def tambah(data):
     data.insert(i, nama)
     print(f"'{nama}' ditambahkan.")
 
-def hapus(data):
+def hapus(data): # Menghapus data dari array
     nama = input("Masukkan data yang ingin dihapus: ").strip()
     if nama in data:
         data.remove(nama)
@@ -20,7 +20,7 @@ def hapus(data):
     else:
         print("Data tidak ditemukan.")
 
-def main():
+def main(): # Fungsi utama untuk menjalankan program
     daftar = []
     while True:
         print("\nMenu:")
@@ -41,7 +41,7 @@ def main():
         else:
             print("Pilihan tidak valid.")
 
-while True:
+while True: # Loop untuk mengulang program
     main()
     ulang = input("\nApakah ingin mengulang program? (ya/tidak): ").strip().lower()
     if ulang != 'ya':
