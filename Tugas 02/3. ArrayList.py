@@ -1,69 +1,49 @@
-class DaftarData:
-    def __init__(self):
-        self.data = []
+def tampilkan(data):
+    if not data:
+        print("Array kosong.")
+    else:
+        print("Isi array:", ", ".join(data))
 
-    def tampilkan_data(self):
-        print("\nDaftar Data:")
-        for nama in self.data:
-            print(nama, end=' ')
-        print("\n")
+def tambah(data):
+    nama = input("Masukkan data yang ingin ditambah: ").strip()
+    i = 0
+    while i < len(data) and nama.lower() > data[i].lower():
+        i += 1
+    data.insert(i, nama)
+    print(f"'{nama}' ditambahkan.")
 
-    def tambah_data(self, data_baru):
-        posisi = -1
-        for i, nama in enumerate(self.data):
-            if data_baru.lower() < nama.lower():
-                posisi = i
-                break
-        if posisi == -1:
-            self.data.append(data_baru)
-        else:
-            self.data.insert(posisi, data_baru)
-        return True
+def hapus(data):
+    nama = input("Masukkan data yang ingin dihapus: ").strip()
+    if nama in data:
+        data.remove(nama)
+        print(f"'{nama}' dihapus.")
+    else:
+        print("Data tidak ditemukan.")
 
-    def hapus_data(self, data_yang_dihapus):
-        try:
-            self.data.remove(data_yang_dihapus)
-            return True
-        except ValueError:
-            return False
-
-    def tampilkan_menu(self):
-        print("Menu:")
+def main():
+    array = []
+    while True:
+        print("\nMenu:")
         print("1. Tambah Data")
         print("2. Hapus Data")
-        print("3. Tampilkan Daftar Data")
-        print("4. Keluar")
-        pilihan = input("Pilih (1 - 4): ")
-        return pilihan.strip()
-    
-def main():
-    daftar = DaftarData()
-
-    while True:
-        pilihan = daftar.tampilkan_menu()
+        print("3. Tampilkan Data")
+        print("4. Selesai")
+        pilihan = input("Pilih (1-4): ").strip()
 
         if pilihan == '1':
-            nama_data = input("Masukkan nama data yang ingin ditambahkan: ").strip()
-            daftar.tambah_data(nama_data)
-            print(f"{nama_data} berhasil ditambahkan.")
+            tambah(array)
         elif pilihan == '2':
-            nama_data = input("Masukkan nama data yang ingin dihapus: ").strip()
-            if daftar.hapus_data(nama_data):
-                print(f"{nama_data} berhasil dihapus.")
-            else:
-                print("Data tidak ditemukan.")
+            hapus(array)
         elif pilihan == '3':
-            daftar.tampilkan_data()
+            tampilkan(array)
         elif pilihan == '4':
-            print("Program selesai.")
             break
         else:
-            print("Pilihan tidak valid. Silakan coba lagi.")
+            print("Pilihan tidak valid.")
 
-# Loop untuk mengulang program
 while True:
     main()
-    ulang = input("Apakah Anda ingin mengulang program? (ya/tidak): ").strip().lower()
+    ulang = input("\nApakah ingin mengulang program? (ya/tidak): ").strip().lower()
     if ulang != 'ya':
-        print("Terima kasih telah menggunakan program.")
+        print("Terima kasih! Program selesai.")
         break
